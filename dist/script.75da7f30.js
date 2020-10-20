@@ -28427,7 +28427,33 @@ module.exports = [{
   "beds": 3,
   "photo": "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
 }];
-},{}],"components/CardComponent.js":[function(require,module,exports) {
+},{}],"components/SvgComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SvgComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SvgComponent() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
+    className: "w-6 h-6",
+    fill: "#EB5757",
+    stroke: "#EB5757",
+    viewBox: "0 0 24 24",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    d: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+  })));
+}
+},{"react":"node_modules/react/index.js"}],"components/CardComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28436,6 +28462,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = CardComponent;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _SvgComponent = _interopRequireDefault(require("./SvgComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28449,12 +28477,89 @@ function CardComponent(_ref) {
       type = _ref.type,
       country = _ref.country,
       superHost = _ref.superHost;
-  console.log(city);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "card--city"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, city));
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: photo
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "room-desc"
+  }, /*#__PURE__*/_react.default.createElement("div", null, superHost && /*#__PURE__*/_react.default.createElement("p", null, "superhost"), /*#__PURE__*/_react.default.createElement("small", null, type, ".", beds, " ", beds, "beds")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "fa fa-star"
+  }, /*#__PURE__*/_react.default.createElement(_SvgComponent.default, null), /*#__PURE__*/_react.default.createElement("small", null, rating))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "card-title"
+  }, title));
 }
-},{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./SvgComponent":"components/SvgComponent.js"}],"components/HeaderComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = HeaderComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HeaderComponent(props) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland"), /*#__PURE__*/_react.default.createElement("small", null, props.staylenght, "+ stays")));
+}
+},{"react":"node_modules/react/index.js"}],"components/FormComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = FormComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FormComponent() {
+  return /*#__PURE__*/_react.default.createElement("fieldset", null, "I am the form Component");
+}
+},{"react":"node_modules/react/index.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
+
+var possibilities = {
+  lowerCased: 'abcdefghijklmnopqrstuvwxyz',
+  capitals: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  numbers: '0123456789',
+  special: '~!@#$%^&()_+-={}[];\','
+};
+
+function randomId(len, pattern) {
+  if (!len) len = 30;
+  if (!pattern) pattern = 'aA0';
+
+  var chars = '';
+
+  pattern.split('').forEach((a) => {
+    if (!isNaN(parseInt(a))) {
+      chars += possibilities.numbers;
+    } else if (/[a-z]/.test(a)) {
+      chars += possibilities.lowerCased;
+    } else if (/[A-Z]/.test(a)) {
+      chars += possibilities.capitals;
+    } else {
+      chars += possibilities.special;
+    }
+  });
+
+  var result = '';
+
+  for (var i = 0; i < len; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length)); 
+  }
+
+  return result;
+}
+
+module.exports = randomId;
+
+},{}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28468,6 +28573,12 @@ var _stays = _interopRequireDefault(require("./stays.json"));
 
 var _CardComponent = _interopRequireDefault(require("./components/CardComponent"));
 
+var _HeaderComponent = _interopRequireDefault(require("./components/HeaderComponent"));
+
+var _FormComponent = _interopRequireDefault(require("./components/FormComponent"));
+
+var _randomId = _interopRequireDefault(require("random-id"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -28476,13 +28587,18 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 //import my element
 //
 function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, _stays.default.map(function (stay) {
+  var staylenght = _stays.default.length;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_FormComponent.default, null), /*#__PURE__*/_react.default.createElement(_HeaderComponent.default, _extends({
+    staylenght: staylenght
+  }, _stays.default)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "card--container"
+  }, _stays.default.map(function (stay) {
     return /*#__PURE__*/_react.default.createElement(_CardComponent.default, _extends({
-      key: stay.id
+      key: (0, _randomId.default)()
     }, stay));
-  }));
+  })));
 }
-},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./components/CardComponent":"components/CardComponent.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./components/CardComponent":"components/CardComponent.js","./components/HeaderComponent":"components/HeaderComponent.js","./components/FormComponent":"components/FormComponent.js","random-id":"node_modules/random-id/index.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -28522,7 +28638,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52209" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55344" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

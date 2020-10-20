@@ -1,4 +1,5 @@
 import React from 'react'
+import SvgComponent from "./SvgComponent"
 
 export default function CardComponent ({
   beds,
@@ -11,10 +12,17 @@ export default function CardComponent ({
   country,
   superHost,
 }) {
-  console.log(city);
   return (
-    <div className="card--city">
-      <h2>{city}</h2>
-    </div>
+      <div className="card--city">
+        <img src={photo}/>
+        <div className="room-desc">  
+          <div>
+            {superHost && <p>superhost</p>}
+            <small>{type}.{beds} {beds}beds</small>
+          </div>
+          <div className="fa fa-star"><SvgComponent/><small>{rating}</small></div>
+        </div>
+          <div className="card-title">{title}</div>
+      </div>
   )
 }

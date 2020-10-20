@@ -1,0 +1,39 @@
+img {
+  width: 100%;
+  height: 100%;
+}
+
+
+svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.fa-star, 
+.room-desc,
+.room-desc > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.room-desc > div,
+.room-desc {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items : center;
+}
+
+@media (min-width : 620px) {
+  .card--container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    place-items: center center;
+  }
+}
