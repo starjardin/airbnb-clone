@@ -1,3 +1,5 @@
+@import "modal.scss";
+
 img {
   width: 100%;
   height: 100%;
@@ -9,17 +11,43 @@ svg {
   height: 1.2rem;
 }
 
-.fa-star, 
+.star, 
 .room-desc,
-.room-desc > div {
+.room-desc > div,
+.fieldset,
+.logo,
+.form--header {
   display: flex;
   flex-direction: row;
 }
 
 .room-desc > div,
-.room-desc {
+.room-desc,
+.form--header {
   align-items: center;
   justify-content: space-between;
+}
+
+.fieldset,
+.logo {
+  align-items: center;
+}
+
+.fieldset {
+  border: none;
+  box-shadow: 1px 1px 5px #f2f2f2;
+  border-radius: 16px;
+}
+
+.add {
+  border-top: none;
+  border-bottom: none;
+  background-color: #ffffff;
+  
+}
+
+i {
+  color: red;  
 }
 
 .header {

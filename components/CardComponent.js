@@ -20,7 +20,7 @@ export default function CardComponent ({
             {superHost && <p>superhost</p>}
             <small>{type}.{beds} {beds}beds</small>
           </div>
-          <div className="fa fa-star"><SvgComponent/><small>{rating}</small></div>
+          <div className="fa star"><SvgComponent/><small>{rating}</small></div>
         </div>
           <div className="card-title">{title}</div>
       </div>

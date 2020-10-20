@@ -28434,6 +28434,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = SvgComponent;
+exports.TrioSvg = TrioSvg;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -28452,6 +28453,21 @@ function SvgComponent() {
     strokeWidth: "2",
     d: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
   })));
+}
+
+function TrioSvg() {
+  return /*#__PURE__*/_react.default.createElement("svg", {
+    className: "w-6 h-6",
+    fill: "#EB5757",
+    stroke: "#EB5757",
+    viewBox: "0 0 24 24",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    d: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+  }));
 }
 },{"react":"node_modules/react/index.js"}],"components/CardComponent.js":[function(require,module,exports) {
 "use strict";
@@ -28484,7 +28500,7 @@ function CardComponent(_ref) {
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "room-desc"
   }, /*#__PURE__*/_react.default.createElement("div", null, superHost && /*#__PURE__*/_react.default.createElement("p", null, "superhost"), /*#__PURE__*/_react.default.createElement("small", null, type, ".", beds, " ", beds, "beds")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "fa fa-star"
+    className: "fa star"
   }, /*#__PURE__*/_react.default.createElement(_SvgComponent.default, null), /*#__PURE__*/_react.default.createElement("small", null, rating))), /*#__PURE__*/_react.default.createElement("div", {
     className: "card-title"
   }, title));
@@ -28506,6 +28522,31 @@ function HeaderComponent(props) {
     className: "header"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland"), /*#__PURE__*/_react.default.createElement("small", null, props.staylenght, "+ stays")));
 }
+},{"react":"node_modules/react/index.js"}],"components/SearchComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SearchComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SearchComponent() {
+  return /*#__PURE__*/_react.default.createElement("form", {
+    className: "search-component"
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "location"), /*#__PURE__*/_react.default.createElement("select", null, /*#__PURE__*/_react.default.createElement("option", {
+    value: "helsinki, finland"
+  }, "helsinki, finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "turku,finland"
+  }, "turku, finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "oulu,finland"
+  }, "oulu, finland"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "voasa,finland"
+  }, "voasa, finland"))));
+}
 },{"react":"node_modules/react/index.js"}],"components/FormComponent.js":[function(require,module,exports) {
 "use strict";
 
@@ -28516,12 +28557,42 @@ exports.default = FormComponent;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _SearchComponent = _interopRequireDefault(require("./SearchComponent"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FormComponent() {
-  return /*#__PURE__*/_react.default.createElement("fieldset", null, "I am the form Component");
+  return /*#__PURE__*/_react.default.createElement("fieldset", {
+    className: "fieldset"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Helsinki, finland"), /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    className: "btn add"
+  }, "Add guests"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("i", {
+    className: "fa fa-search"
+  }), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox"
+  }), /*#__PURE__*/_react.default.createElement(_SearchComponent.default, null)));
 }
-},{"react":"node_modules/react/index.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./SearchComponent":"components/SearchComponent.js"}],"components/LogoComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = LogoComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _SvgComponent = require("./SvgComponent");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LogoComponent() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "logo"
+  }, /*#__PURE__*/_react.default.createElement(_SvgComponent.TrioSvg, null), /*#__PURE__*/_react.default.createElement("p", null, "windbnb")));
+}
+},{"react":"node_modules/react/index.js","./SvgComponent":"components/SvgComponent.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
 
 var possibilities = {
   lowerCased: 'abcdefghijklmnopqrstuvwxyz',
@@ -28577,6 +28648,8 @@ var _HeaderComponent = _interopRequireDefault(require("./components/HeaderCompon
 
 var _FormComponent = _interopRequireDefault(require("./components/FormComponent"));
 
+var _LogoComponent = _interopRequireDefault(require("./components/LogoComponent"));
+
 var _randomId = _interopRequireDefault(require("random-id"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28588,7 +28661,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 //
 function App() {
   var staylenght = _stays.default.length;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_FormComponent.default, null), /*#__PURE__*/_react.default.createElement(_HeaderComponent.default, _extends({
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "form--header"
+  }, /*#__PURE__*/_react.default.createElement(_LogoComponent.default, null), /*#__PURE__*/_react.default.createElement(_FormComponent.default, null)), /*#__PURE__*/_react.default.createElement(_HeaderComponent.default, _extends({
     staylenght: staylenght
   }, _stays.default)), /*#__PURE__*/_react.default.createElement("div", {
     className: "card--container"
@@ -28598,7 +28673,7 @@ function App() {
     }, stay));
   })));
 }
-},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./components/CardComponent":"components/CardComponent.js","./components/HeaderComponent":"components/HeaderComponent.js","./components/FormComponent":"components/FormComponent.js","random-id":"node_modules/random-id/index.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./components/CardComponent":"components/CardComponent.js","./components/HeaderComponent":"components/HeaderComponent.js","./components/FormComponent":"components/FormComponent.js","./components/LogoComponent":"components/LogoComponent.js","random-id":"node_modules/random-id/index.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

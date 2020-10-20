@@ -1,0 +1,14 @@
+.search-component {
+  display: block;
+}
+
+[type="checkbox"]:checked ~ .search-component {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 50vh;
+  
+}
+
