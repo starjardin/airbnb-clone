@@ -1,9 +1,11 @@
 .search-component {
-  display: block;
+  display: none;
 }
 
-[type=checkbox]:checked ~ .search-component {
+.open:checked ~ .search-component {
+  display: block;
   position: absolute;
+  background-color: #ffffff;
   left: 0;
   right: 0;
   top: 0;
@@ -11,11 +13,20 @@
   height: 50vh;
 }
 
-[type=text]:focus ~ div {
-  background-color: red;
-  position: absolute;
+.open:checked ~ .search-component > fieldset {
+  display: flex;
   width: 100vw;
-  height: 100vh;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+[type=text] ~ div {
+  display: none;
+}
+
+.add:checked ~ div {
+  display: block;
+  position: absolute;
   top: 0;
   bottom: 0;
 }
