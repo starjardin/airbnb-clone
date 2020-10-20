@@ -14,6 +14,8 @@ export default function FormComponent (props) {
             handeChange={props.handeChange}
             increment={props.increment}
             decrement={props.decrement}
+            adult={props.adult}
+            children={props. children}
           />
         </div>
       </fieldset>

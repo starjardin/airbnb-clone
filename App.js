@@ -36,6 +36,8 @@ export default function App () {
           handeChange={handeChange}
           increment={increment}
           decrement={decrement}
+          adult={adultGuests}
+          children={childrenGuests}
         />
       </div>
       <div className="card--container">

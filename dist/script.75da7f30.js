@@ -28557,7 +28557,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function SearchButtonComponent() {
+function SearchButtonComponent(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("label", null, "I am the search button", /*#__PURE__*/_react.default.createElement("input", null)));
 }
 },{"react":"node_modules/react/index.js"}],"components/SearchComponent.js":[function(require,module,exports) {
@@ -28568,7 +28568,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = SearchComponent;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _ButtonAddGuests = _interopRequireDefault(require("./ButtonAddGuests"));
 
@@ -28576,11 +28576,8 @@ var _SearchButtonComponent = _interopRequireDefault(require("./SearchButtonCompo
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 function SearchComponent(props) {
+  console.log(props);
   return /*#__PURE__*/_react.default.createElement("form", {
     className: "search-component"
   }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "location", /*#__PURE__*/_react.default.createElement("select", {
@@ -28598,10 +28595,10 @@ function SearchComponent(props) {
   }, "Vaasa, Finland"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("details", null, /*#__PURE__*/_react.default.createElement("summary", null, "HelloHelloHelloHello"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, {
     increment: props.increment,
     decrement: props.decrement
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Children"), /*#__PURE__*/_react.default.createElement("small", null, "Age 2 - 12"), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, {
+  }), /*#__PURE__*/_react.default.createElement("p", null, props.adult), console.log(props.adult)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Children"), /*#__PURE__*/_react.default.createElement("small", null, "Age 2 - 12"), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, {
     increment: props.increment,
     decrement: props.decrement
-  }))))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchButtonComponent.default, null))));
+  }), /*#__PURE__*/_react.default.createElement("p", null, props.children))))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchButtonComponent.default, null))));
 }
 },{"react":"node_modules/react/index.js","./ButtonAddGuests":"components/ButtonAddGuests.js","./SearchButtonComponent":"components/SearchButtonComponent.js"}],"components/FormComponent.js":[function(require,module,exports) {
 "use strict";
@@ -28631,7 +28628,9 @@ function FormComponent(props) {
   }), /*#__PURE__*/_react.default.createElement(_SearchComponent.default, {
     handeChange: props.handeChange,
     increment: props.increment,
-    decrement: props.decrement
+    decrement: props.decrement,
+    adult: props.adult,
+    children: props.children
   })));
 }
 },{"react":"node_modules/react/index.js","./SearchComponent":"components/SearchComponent.js"}],"components/LogoComponent.js":[function(require,module,exports) {
@@ -28777,7 +28776,9 @@ function App() {
     stays: _stays.default,
     handeChange: handeChange,
     increment: increment,
-    decrement: decrement
+    decrement: decrement,
+    adult: adultGuests,
+    children: childrenGuests
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "card--container"
   }, maxGuests.map(function (stay) {

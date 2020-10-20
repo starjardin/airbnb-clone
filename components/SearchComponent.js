@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import ButtonAddGuests from "./ButtonAddGuests"
 import SearchButtonComponent from "./SearchButtonComponent"
 
 export default function SearchComponent (props) {
+  console.log(props);
   return (
     <form className="search-component">
       <fieldset>
@@ -26,6 +27,8 @@ export default function SearchComponent (props) {
                   increment={props.increment}
                   decrement={props.decrement}
                 />
+                <p>{props.adult}</p>
+                {console.log(props.adult)}
               </div>
               <div>
                 <p>Children</p>
@@ -34,6 +37,7 @@ export default function SearchComponent (props) {
                   increment={props.increment}
                   decrement={props.decrement}
                 />
+                <p>{props.children}</p>
               </div>
             </div>
           </details>
