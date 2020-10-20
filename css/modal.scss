@@ -9,6 +9,14 @@
   top: 0;
   width: 100vw;
   height: 50vh;
-  
+}
+
+[type="text"]:focus ~ div {
+  background-color: red;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
 }
 
