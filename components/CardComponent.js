@@ -14,7 +14,9 @@ export default function CardComponent ({
 }) {
   return (
       <div className="card--city">
-        <img src={photo}/>
+        <picture>
+          <img src={photo}/>
+        </picture>
         <div className="room-desc">  
           <div>
             {superHost && <p>superhost</p>}

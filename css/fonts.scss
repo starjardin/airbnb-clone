@@ -1,0 +1,18 @@
+// $fonts : (
+//   (family : "Montserrat", style : normal, filename : "Montserrat"),
+//   (family : "Montserrat", style : normal, filename : "Montserrat"),
+//   (family : "Montserrat", style : normal, filename : "Montserrat"),
+//   (family : "Montserrat", style : normal, filename : "Montserrat"),
+//   (family : "Montserrat", style : normal, filename : "Montserrat")
+//   );
+
+//   @each $font in ($fonts ){
+//     @font-face {
+//       font-family: map-get($font, family);
+//       src: url('../fonts/#{map-get($font, filename)}_Black.woff') format("woff"),
+//     }
+//   }
+
+  // body {
+  //   font-family: "Montserrat";
+  // }

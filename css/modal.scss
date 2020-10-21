@@ -1,33 +1,40 @@
 .search-component {
   display: none;
-}
-
-.open:checked ~ .search-component {
-  display: block;
-  position: absolute;
-  background-color: #ffffff;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100vw;
-  height: 50vh;
+  position: relative;
+  transform: translateY(-210%);
+  transition: .5s;
 }
 
 .open:checked ~ .search-component > fieldset {
-  display: flex;
-  width: 100vw;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-[type="text"] ~ div {
-  display: none;
-}
-
-.add:checked ~ div {
   display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
 }
 
+
+@media (min-width : 520px) {
+  .open:checked ~ .search-component {
+    display: block;
+    transform: translateY(0);
+    background-color: #ffffff;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 50vh;
+  }
+
+  picture {
+    width: 50%;
+  }
+
+  .open:checked ~ .search-component > fieldset {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  details,
+  button {
+    cursor: pointer;
+  }
+}

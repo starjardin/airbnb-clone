@@ -3,7 +3,6 @@ import ButtonAddGuests from "./ButtonAddGuests"
 import SearchButtonComponent from "./SearchButtonComponent"
 
 export default function SearchComponent (props) {
-  console.log(props);
   return (
     <form className="search-component">
       <fieldset>
@@ -23,20 +22,15 @@ export default function SearchComponent (props) {
               <div>
                 <p>adult</p>
                 <small>Age 13 or above</small>
-                <ButtonAddGuests 
-                  increment={props.increment}
-                  decrement={props.decrement}
-                />
+                <button type="button" onClick={props.adultDecrement} >-</button>
+                <button type="button" onClick={props.adultIncrement}>+</button>
                 <p>{props.adult}</p>
-                {console.log(props.adult)}
               </div>
               <div>
                 <p>Children</p>
                 <small>Age 2 - 12</small>
-                <ButtonAddGuests 
-                  increment={props.increment}
-                  decrement={props.decrement}
-                />
+                <button type="button" onClick={props.childrenDecrement} >-</button>
+                <button type="button" onClick={props.childrenIncrement}>+</button>
                 <p>{props.children}</p>
               </div>
             </div>

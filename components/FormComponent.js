@@ -7,17 +7,20 @@ export default function FormComponent (props) {
       <fieldset className="fieldset">
         <p>Helsinki, finland</p>
         <button type="button" className="btn add">Add guests</button>
-        <div>
-          <i className="fa fa-search"></i>
-          <input className="open" type="checkbox"/>
+        <div className="formSearch">
+          <label className="fa fa-search" htmlFor="search"></label>
+          <input className="open" type="checkbox" id="search"/>
           <SearchComponent 
             handeChange={props.handeChange}
-            increment={props.increment}
-            decrement={props.decrement}
+            adultDecrement={props.adultDecrement}
+            adultIncrement={props.adultIncrement}
+            childrenDecrement={props.childrenDecrement}
+            childrenIncrement={props.childrenIncrement}
             adult={props.adult}
-            children={props. children}
+            children={props.children}
           />
         </div>
       </fieldset>
   )
 }
+

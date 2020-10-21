@@ -8,6 +8,7 @@ import randomId from "random-id"
 
 export default function App () {
   const [towns, setTowns] = useState(stays)
+
   function handeChange (e) {
     setTowns(stays.filter(town => {
       return town.city.toLocaleLowerCase() === e.target.value
@@ -16,16 +17,37 @@ export default function App () {
 
   const [adultGuests, setAdultGuests] = useState(0)
   const [childrenGuests, setChildrenGuests] = useState(0)
-  function decrement () {
-    setAdultGuests(prev => prev - 1 )
+  
+  function adultDecrement () {
+    setAdultGuests(prev => {
+      if (prev > 0) {
+        return prev - 1
+      } else {
+        return prev = 0
+      }
+    })
   }
 
-  function increment () {
+  function adultIncrement () {
+    setAdultGuests(prev => prev + 1 )
+  }
+
+  function childrenDecrement () {
+    setChildrenGuests(prev => {
+      if (prev > 0) {
+        return prev -1
+    } else {
+      return prev = 0
+    }
+  })
+}
+
+  function childrenIncrement () {
     setChildrenGuests(prev => prev + 1 )
   }
   const guests = adultGuests + childrenGuests;
   const maxGuests = towns.filter(town => {
-    return town.maxGuests > guests
+    return town.maxGuests >= guests
   })
   return (
     <>
@@ -34,8 +56,10 @@ export default function App () {
         <FormComponent 
           stays={stays} 
           handeChange={handeChange}
-          increment={increment}
-          decrement={decrement}
+          adultDecrement={adultDecrement}
+          adultIncrement={adultIncrement}
+          childrenDecrement={childrenDecrement}
+          childrenIncrement={childrenIncrement}
           adult={adultGuests}
           children={childrenGuests}
         />
