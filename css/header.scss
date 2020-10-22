@@ -1,0 +1,19 @@
+.logo p {
+  color: #EB5757;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: bold;
+  padding-inline-start: 1rem;
+}
+
+.form--header {
+  padding-bottom: 2rem;
+}
+
+.form--header,
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
