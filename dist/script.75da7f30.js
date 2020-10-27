@@ -28534,139 +28534,34 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function ButtonAddGuests(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("button", {
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function ButtonAddGuests(_ref) {
+  var setAdultGuests = _ref.setAdultGuests,
+      setChildrenGuests = _ref.setChildrenGuests,
+      isOpen = _ref.isOpen,
+      setIsOpen = _ref.setIsOpen,
+      handleOpen = _ref.handleOpen,
+      adultGuests = _ref.adultGuests,
+      props = _objectWithoutProperties(_ref, ["setAdultGuests", "setChildrenGuests", "isOpen", "setIsOpen", "handleOpen", "adultGuests"]);
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("details", null, /*#__PURE__*/_react.default.createElement("summary", null, /*#__PURE__*/_react.default.createElement("p", null, "Guests")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: props.increment
-  }, "+"), /*#__PURE__*/_react.default.createElement("button", {
-    type: "button",
-    onClick: props.decrement
-  }, "-"));
-}
-},{"react":"node_modules/react/index.js"}],"components/SearchButtonComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SearchButtonComponent;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SearchButtonComponent(props) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("label", null, "I am the search button", /*#__PURE__*/_react.default.createElement("input", null)));
-}
-},{"react":"node_modules/react/index.js"}],"components/SearchComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SearchComponent;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _ButtonAddGuests = _interopRequireDefault(require("./ButtonAddGuests"));
-
-var _SearchButtonComponent = _interopRequireDefault(require("./SearchButtonComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SearchComponent(props) {
-  return /*#__PURE__*/_react.default.createElement("form", {
-    className: "search-component"
-  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "location", /*#__PURE__*/_react.default.createElement("select", {
-    onChange: props.handeChange,
-    className: "fa"
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: ""
-  }, "----Chose a town---"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "helsinki"
-  }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "turku"
-  }, "Turku, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "oulu"
-  }, "Oulu, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "fa fa-location"
-  }, " \uF2BB location"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "fa fa-address-card"
-  }, " \uF2BB Pie Chart"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "vaasa"
-  }, "Vaasa, Finland"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "fa-location-arrow"
-  }, "\uF124 fa-location-arrow"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "fa-location"
-  }, "\uF124 fa-location")), /*#__PURE__*/_react.default.createElement("i", {
-    class: "fas fa-location"
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("details", null, /*#__PURE__*/_react.default.createElement("summary", null, /*#__PURE__*/_react.default.createElement("p", null, "Guests")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement("button", {
-    type: "button",
-    onClick: props.adultDecrement
+    onClick: function onClick() {}
   }, "-"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: props.adultIncrement
+    onClick: function onClick() {}
   }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.adult)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Children"), /*#__PURE__*/_react.default.createElement("small", null, "Age 2 - 12"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: props.childrenDecrement
+    onClick: function onClick() {}
   }, "-"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: props.childrenIncrement
-  }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.children))))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
-    type: "button",
-    onClick: props.handleOpen
-  }, "\xD7"))));
+    onClick: function onClick() {}
+  }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.children))))));
 }
-},{"react":"node_modules/react/index.js","./ButtonAddGuests":"components/ButtonAddGuests.js","./SearchButtonComponent":"components/SearchButtonComponent.js"}],"components/FormComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = FormComponent;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _SearchComponent = _interopRequireDefault(require("./SearchComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function FormComponent(props) {
-  return /*#__PURE__*/_react.default.createElement("fieldset", {
-    className: "fieldset"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "formSearch"
-  }, /*#__PURE__*/_react.default.createElement(_SearchComponent.default, {
-    handleOpen: props.handleOpen,
-    handeChange: props.handeChange,
-    adultDecrement: props.adultDecrement,
-    adultIncrement: props.adultIncrement,
-    childrenDecrement: props.childrenDecrement,
-    childrenIncrement: props.childrenIncrement,
-    adult: props.adult,
-    children: props.children
-  })));
-}
-},{"react":"node_modules/react/index.js","./SearchComponent":"components/SearchComponent.js"}],"components/LogoComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = LogoComponent;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _SvgComponent = require("./SvgComponent");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function LogoComponent() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "logo"
-  }, /*#__PURE__*/_react.default.createElement(_SvgComponent.TrioSvg, null), /*#__PURE__*/_react.default.createElement("p", null, "windbnb")));
-}
-},{"react":"node_modules/react/index.js","./SvgComponent":"components/SvgComponent.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
 
 var possibilities = {
   lowerCased: 'abcdefghijklmnopqrstuvwxyz',
@@ -28704,7 +28599,157 @@ function randomId(len, pattern) {
 
 module.exports = randomId;
 
-},{}],"App.js":[function(require,module,exports) {
+},{}],"components/SearchComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SearchComponent;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _ButtonAddGuests = _interopRequireDefault(require("./ButtonAddGuests"));
+
+var _randomId = _interopRequireDefault(require("random-id"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function SearchComponent(props) {
+  var _React$createElement;
+
+  var stays = props.stays.map(function (stay) {
+    return stay.city;
+  });
+
+  var cities = _toConsumableArray(new Set(stays));
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  function getValue(e) {
+    setValue(e.target.dataset.value);
+  }
+
+  var stay = props.stays.map(function (stay) {
+    return stay.city;
+  });
+
+  function handleChange(e) {
+    console.log(e.target.value);
+    setValue(value.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()));
+  }
+
+  return /*#__PURE__*/_react.default.createElement("form", {
+    className: "search-component",
+    onSubmit: props.handleSubmit
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "location", /*#__PURE__*/_react.default.createElement("input", (_React$createElement = {
+    type: "text",
+    name: "change",
+    onChange: handleChange
+  }, _defineProperty(_React$createElement, "name", "search"), _defineProperty(_React$createElement, "value", value), _React$createElement)), cities.map(function (city) {
+    return /*#__PURE__*/_react.default.createElement("p", {
+      key: (0, _randomId.default)()
+    }, city);
+  }), /*#__PURE__*/_react.default.createElement("i", {
+    className: "fas fa-location"
+  })), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, {
+    handleOpen: props.handleOpen,
+    adultGuests: props.adultGuests,
+    setAdultGuests: props.setAdultGuests,
+    childrenGuests: props.childrenGuests,
+    setChildrenGuests: props.setChildrenGuests,
+    adult: props.adult,
+    children: props.children,
+    isOpen: props.isOpen,
+    setIsOpen: props.setIsOpen
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "fa fa-search",
+    "aria-label": "search"
+  }))));
+}
+},{"react":"node_modules/react/index.js","./ButtonAddGuests":"components/ButtonAddGuests.js","random-id":"node_modules/random-id/index.js"}],"components/FormComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = FormComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _SearchComponent = _interopRequireDefault(require("./SearchComponent"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FormComponent(props) {
+  return /*#__PURE__*/_react.default.createElement("fieldset", {
+    className: "fieldset"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "formSearch"
+  }, /*#__PURE__*/_react.default.createElement(_SearchComponent.default, {
+    handleOpen: props.handleOpen,
+    adultGuests: props.adultGuests,
+    setAdultGuests: props.setAdultGuests,
+    childrenGuests: props.childrenGuests,
+    setChildrenGuests: props.setChildrenGuests,
+    adult: props.adult,
+    children: props.children,
+    isOpen: props.isOpen,
+    setIsOpen: props.setIsOpen,
+    handleSubmit: props.handleSubmit,
+    stays: props.stays
+  })));
+}
+},{"react":"node_modules/react/index.js","./SearchComponent":"components/SearchComponent.js"}],"components/LogoComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = LogoComponent;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _SvgComponent = require("./SvgComponent");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LogoComponent() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "logo"
+  }, /*#__PURE__*/_react.default.createElement(_SvgComponent.TrioSvg, null), /*#__PURE__*/_react.default.createElement("p", null, "windbnb")));
+}
+},{"react":"node_modules/react/index.js","./SvgComponent":"components/SvgComponent.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28757,12 +28802,6 @@ function App() {
       isOpen = _useState4[0],
       setIsOpen = _useState4[1];
 
-  function handeChange(e) {
-    setTowns(_stays.default.filter(function (town) {
-      return town.city.toLocaleLowerCase() === e.target.value;
-    }));
-  }
-
   var _useState5 = (0, _react.useState)(0),
       _useState6 = _slicedToArray(_useState5, 2),
       adultGuests = _useState6[0],
@@ -28772,38 +28811,6 @@ function App() {
       _useState8 = _slicedToArray(_useState7, 2),
       childrenGuests = _useState8[0],
       setChildrenGuests = _useState8[1];
-
-  function adultDecrement() {
-    setAdultGuests(function (prev) {
-      if (prev > 0) {
-        return prev - 1;
-      } else {
-        return prev = 0;
-      }
-    });
-  }
-
-  function adultIncrement() {
-    setAdultGuests(function (prev) {
-      return prev + 1;
-    });
-  }
-
-  function childrenDecrement() {
-    setChildrenGuests(function (prev) {
-      if (prev > 0) {
-        return prev - 1;
-      } else {
-        return prev = 0;
-      }
-    });
-  }
-
-  function childrenIncrement() {
-    setChildrenGuests(function (prev) {
-      return prev + 1;
-    });
-  }
 
   var guests = adultGuests + childrenGuests;
   var maxGuests = towns.filter(function (town) {
@@ -28816,7 +28823,25 @@ function App() {
     });
   }
 
-  console.log(isOpen);
+  var styleIsOpen = {
+    backgroundColor: "#ccc",
+    height: "100vh"
+  };
+  var styleIsClosed = {
+    backgroundColor: "#FFF"
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    var name = e.target.search.value;
+    setTowns(_stays.default.filter(function (town) {
+      return town.city.toLocaleLowerCase() === name.toLocaleLowerCase();
+    }));
+    setChildrenGuests(childrenGuests);
+    setAdultGuests(adultGuests);
+    handleOpen();
+  }
+
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "form--header"
   }, /*#__PURE__*/_react.default.createElement(_LogoComponent.default, null), /*#__PURE__*/_react.default.createElement("div", {
@@ -28830,20 +28855,22 @@ function App() {
     onClick: handleOpen
   }, "Add guests"), /*#__PURE__*/_react.default.createElement("button", {
     className: "fa fa-search click",
-    htmlFor: "search",
-    onClick: handleOpen
+    htmlFor: "search"
   })), isOpen && /*#__PURE__*/_react.default.createElement(_FormComponent.default, {
     handleOpen: handleOpen,
     stays: _stays.default,
-    handeChange: handeChange,
-    adultDecrement: adultDecrement,
-    adultIncrement: adultIncrement,
-    childrenDecrement: childrenDecrement,
-    childrenIncrement: childrenIncrement,
+    adultGuests: adultGuests,
+    setAdultGuests: setAdultGuests,
+    childrenGuests: childrenGuests,
+    setChildrenGuests: setChildrenGuests,
     adult: adultGuests,
-    children: childrenGuests
+    children: childrenGuests,
+    isOpen: isOpen,
+    setIsOpen: setIsOpen,
+    handleSubmit: handleSubmit
   })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "card--container"
+    className: "card--container",
+    style: isOpen ? styleIsOpen : styleIsClosed
   }, maxGuests.map(function (stay) {
     return /*#__PURE__*/_react.default.createElement(_CardComponent.default, _extends({
       key: (0, _randomId.default)()
@@ -28892,7 +28919,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63716" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61540" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

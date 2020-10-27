@@ -9,43 +9,10 @@ import randomId from "random-id"
 export default function App () {
   const [towns, setTowns] = useState(stays)
   const [isOpen, setIsOpen] = useState(false)
-  function handeChange (e) {
-    setTowns(stays.filter(town => {
-      return town.city.toLocaleLowerCase() === e.target.value
-    }))
-  }
-
   const [adultGuests, setAdultGuests] = useState(0)
   const [childrenGuests, setChildrenGuests] = useState(0)
   
-  function adultDecrement () {
-    setAdultGuests(prev => {
-      if (prev > 0) {
-        return prev - 1
-      } else {
-        return prev = 0
-      }
-    })
-  }
-
-  function adultIncrement () {
-    setAdultGuests(prev => prev + 1 )
-  }
-
-  function childrenDecrement () {
-    setChildrenGuests(prev => {
-      if (prev > 0) {
-        return prev -1
-    } else {
-      return prev = 0
-    }
-  })
-}
-
-  function childrenIncrement () {
-    setChildrenGuests(prev => prev + 1 )
-  }
-  const guests = adultGuests + childrenGuests;
+  const guests = adultGuests + childrenGuests
   const maxGuests = towns.filter(town => {
     return town.maxGuests >= guests
   })
@@ -54,7 +21,24 @@ export default function App () {
     setIsOpen(prev => !prev)
   }
 
-  console.log(isOpen);
+  const styleIsOpen = {
+    backgroundColor : "#ccc",
+    height : "100vh"
+  }
+  const styleIsClosed = {
+    backgroundColor : "#FFF"
+  }
+
+  function handleSubmit (e) {
+    e.preventDefault()
+    const name = e.target.search.value
+    setTowns(stays.filter(town => {
+      return town.city.toLocaleLowerCase() === name.toLocaleLowerCase()
+    }))
+    setChildrenGuests(childrenGuests)
+    setAdultGuests(adultGuests)
+    handleOpen()
+  }
 
   return (
     <>
@@ -67,22 +51,24 @@ export default function App () {
           <button 
             type="button" className="btn add click" onClick={handleOpen}>Add guests</button>
           <button  
-            className="fa fa-search click" htmlFor="search" onClick={handleOpen}></button>
+            className="fa fa-search click" htmlFor="search"></button>
         </div>
           {/* When the state isOpen is open, show this element otherwise do not do anything with it*/}
         {isOpen && <FormComponent
           handleOpen={handleOpen}
-          stays={stays} 
-          handeChange={handeChange}
-          adultDecrement={adultDecrement}
-          adultIncrement={adultIncrement}
-          childrenDecrement={childrenDecrement}
-          childrenIncrement={childrenIncrement}
+          stays={stays}
+          adultGuests={adultGuests}
+          setAdultGuests={setAdultGuests}
+          childrenGuests={childrenGuests}
+          setChildrenGuests={setChildrenGuests}
           adult={adultGuests}
           children={childrenGuests}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          handleSubmit={handleSubmit}
         />}
       </div>
-      <div className="card--container">
+      <div className="card--container" style={isOpen ? styleIsOpen : styleIsClosed} >
         {maxGuests.map(stay => {
           return (
             <CardComponent key={randomId()} {...stay}/>

@@ -1,55 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ButtonAddGuests from "./ButtonAddGuests"
-import SearchButtonComponent from "./SearchButtonComponent"
-
+import randomId from 'random-id'
+ 
 export default function SearchComponent (props) {
+
+  const stays = props.stays.map(stay => stay.city)
+  const cities = [...new Set (stays)]
+
+  const [value, setValue] = useState('')
+
+  function getValue (e) {
+    setValue(e.target.dataset.value)
+  }
+
+  const stay = props.stays.map(stay => stay.city)
+
+  function handleChange (e) {
+    console.log(e.target.value)
+    setValue(value.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()))
+  }
   return (
-    <form className="search-component">
+    <form className="search-component" onSubmit={props.handleSubmit}>
       <fieldset>
         <label>location
-          <select onChange={props.handeChange} className="fa">
-            <option value="">----Chose a town---</option>
-            <option value="helsinki">Helsinki, Finland</option>
-            <option value="turku">Turku, Finland</option>
-            <option value="oulu">Oulu, Finland</option>
-            <option value="fa fa-location"> &#xf2bb; location</option>
-            <option value="fa fa-address-card"> &#xf2bb; Pie Chart</option>
-            <option value="vaasa">Vaasa, Finland</option>
-             <option value="fa-location-arrow">&#xf124; fa-location-arrow</option>
-             <option value="fa-location">&#xf124; fa-location</option>
-          </select>
-          <i class="fas fa-location"></i>
+          <input type='text' name="change" onChange={handleChange} name="search" value={value}/>
+          {cities.map(city => {
+            return <p key={randomId()} >{city}</p>
+          })}
+          
+          <i className="fas fa-location"></i>
         </label>
+        <ButtonAddGuests
+          handleOpen={props.handleOpen}  
+          adultGuests={props.adultGuests}
+          setAdultGuests={props.setAdultGuests}
+          childrenGuests={props.childrenGuests}
+          setChildrenGuests={props.setChildrenGuests}
+          adult={props.adult}
+          children={props.children}
+          isOpen={props.isOpen}
+          setIsOpen={props.setIsOpen}
+        />
         <div>
-          <details>
-            <summary>
-              <p>Guests</p>
-            </summary>
-            <div>
-              <div>
-                <p>adult</p>
-                <small>Age 13 or above</small>
-                <button 
-                  type="button" onClick={props.adultDecrement} >-</button>
-                <button 
-                  type="button" onClick={props.adultIncrement}>+</button>
-                <p>{props.adult}</p>
-              </div>
-              <div>
-                <p>Children</p>
-                <small>Age 2 - 12</small>
-                <button 
-                  type="button" onClick={props.childrenDecrement} >-</button>
-                <button 
-                  type="button" onClick={props.childrenIncrement}>+</button>
-                <p>{props.children}</p>
-              </div>
-            </div>
-          </details>
-        </div>
-        <div>
-          <button type="button" onClick={props.handleOpen}>&times;</button>
-        </div>
+        <button 
+          type="submit" 
+          className="fa fa-search"
+          aria-label="search"
+        ></button>
+      </div>
       </fieldset>
     </form>
   )

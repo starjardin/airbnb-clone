@@ -1,3 +1,8 @@
+button,
+details {
+  cursor: pointer;
+}
+
 .fieldset,
 .fieldset fieldset {
   border: none;
@@ -9,16 +14,9 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 65vh;
-  color: white;
+  bottom: 75vh;
   transform: translateY(0);
-  background-color: black;
-}
-
-.fieldset fieldset {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  background-color: #ffffff;
 }
 
 summary::-webkit-details-marker {
@@ -84,7 +82,6 @@ select {
   width: 180px;
   padding-top: 0px;
   background-size: 20px;
-  color: #ffffff;
 }
 
 select option {
@@ -92,6 +89,13 @@ select option {
   background: #ffffff;
 }
 
+@media (min-width: 720px) {
+  .fieldset fieldset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 body {
   padding: 1rem;
 }

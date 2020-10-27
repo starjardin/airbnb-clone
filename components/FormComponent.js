@@ -9,13 +9,16 @@ export default function FormComponent (props) {
         <div className="formSearch">
           <SearchComponent
             handleOpen={props.handleOpen} 
-            handeChange={props.handeChange}
-            adultDecrement={props.adultDecrement}
-            adultIncrement={props.adultIncrement}
-            childrenDecrement={props.childrenDecrement}
-            childrenIncrement={props.childrenIncrement}
+            adultGuests={props.adultGuests}
+            setAdultGuests={props.setAdultGuests}
+            childrenGuests={props.childrenGuests}
+            setChildrenGuests={props.setChildrenGuests}
             adult={props.adult}
             children={props.children}
+            isOpen={props.isOpen}
+            setIsOpen={props.setIsOpen}
+            handleSubmit={props.handleSubmit}
+            stays={props.stays}
           />
         </div>
       </fieldset>
