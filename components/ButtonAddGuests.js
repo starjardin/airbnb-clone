@@ -9,6 +9,10 @@ export default function ButtonAddGuests ({
   adultGuests,
   ...props
   }) {
+
+    function incrementAdult () {
+      setAdultGuests(prev => prev + 1)
+    }
   
   return (
     <>
@@ -25,7 +29,7 @@ export default function ButtonAddGuests ({
                 type="button" 
                 onClick={()=> {}} >-</button>
               <button 
-                type="button" onClick={() => {}}>+</button>
+                type="button" onClick={() => {incrementAdult}}>+</button>
               <p>{props.adult}</p>
             </div>
             <div>

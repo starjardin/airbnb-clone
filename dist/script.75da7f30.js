@@ -28547,12 +28547,20 @@ function ButtonAddGuests(_ref) {
       adultGuests = _ref.adultGuests,
       props = _objectWithoutProperties(_ref, ["setAdultGuests", "setChildrenGuests", "isOpen", "setIsOpen", "handleOpen", "adultGuests"]);
 
+  function incrementAdult() {
+    setAdultGuests(function (prev) {
+      return prev + 1;
+    });
+  }
+
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("details", null, /*#__PURE__*/_react.default.createElement("summary", null, /*#__PURE__*/_react.default.createElement("p", null, "Guests")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: function onClick() {}
   }, "-"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    onClick: function onClick() {}
+    onClick: function onClick() {
+      incrementAdult;
+    }
   }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.adult)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Children"), /*#__PURE__*/_react.default.createElement("small", null, "Age 2 - 12"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: function onClick() {}
@@ -28621,25 +28629,25 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function SearchComponent(props) {
   var _React$createElement;
@@ -28648,36 +28656,50 @@ function SearchComponent(props) {
     return stay.city;
   });
 
-  var cities = _toConsumableArray(new Set(stays));
-
-  var _useState = (0, _react.useState)(''),
+  var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      value = _useState2[0],
-      setValue = _useState2[1];
+      cities = _useState2[0],
+      setCities = _useState2[1];
+
+  var city = _toConsumableArray(new Set(stays));
+
+  (0, _react.useEffect)(function () {
+    setCities(city);
+  }, []);
+
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      value = _useState4[0],
+      setValue = _useState4[1];
 
   function getValue(e) {
-    setValue(e.target.dataset.value);
+    if (!value) {
+      return setValue(e.target.dataset.value);
+    }
   }
 
-  var stay = props.stays.map(function (stay) {
-    return stay.city;
-  });
-
   function handleChange(e) {
-    console.log(e.target.value);
-    setValue(value.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()));
+    setCities(cities.filter(function (item) {
+      return item.toLowerCase().includes(e.target.value);
+    }));
   }
 
   return /*#__PURE__*/_react.default.createElement("form", {
     className: "search-component",
     onSubmit: props.handleSubmit
-  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "location", /*#__PURE__*/_react.default.createElement("input", (_React$createElement = {
+  }, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", {
+    className: "loaction"
+  }, "location", /*#__PURE__*/_react.default.createElement("input", (_React$createElement = {
+    autoComplete: "off",
     type: "text",
     name: "change",
     onChange: handleChange
   }, _defineProperty(_React$createElement, "name", "search"), _defineProperty(_React$createElement, "value", value), _React$createElement)), cities.map(function (city) {
     return /*#__PURE__*/_react.default.createElement("p", {
-      key: (0, _randomId.default)()
+      className: "paragraph",
+      key: (0, _randomId.default)(),
+      "data-value": city,
+      onClick: getValue
     }, city);
   }), /*#__PURE__*/_react.default.createElement("i", {
     className: "fas fa-location"
@@ -28919,7 +28941,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61540" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50089" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

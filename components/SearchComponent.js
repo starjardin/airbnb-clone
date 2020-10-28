@@ -1,31 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ButtonAddGuests from "./ButtonAddGuests"
 import randomId from 'random-id'
  
 export default function SearchComponent (props) {
-
   const stays = props.stays.map(stay => stay.city)
-  const cities = [...new Set (stays)]
-
+  const [cities, setCities] = useState([])
+  const city = [...new Set (stays)]
+  useEffect ( () => {
+    setCities(city)
+  }, [])
   const [value, setValue] = useState('')
-
   function getValue (e) {
-    setValue(e.target.dataset.value)
+    if (!value) {
+      return setValue(e.target.dataset.value)
+    }
   }
-
-  const stay = props.stays.map(stay => stay.city)
-
   function handleChange (e) {
-    console.log(e.target.value)
-    setValue(value.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()))
+    setCities(cities.filter((item) => {
+      return item.toLowerCase().includes(e.target.value)
+    }))
   }
+
   return (
     <form className="search-component" onSubmit={props.handleSubmit}>
       <fieldset>
-        <label>location
-          <input type='text' name="change" onChange={handleChange} name="search" value={value}/>
+        <label className="loaction">location
+          <input 
+            autoComplete="off"
+            type='text' 
+            name="change" 
+            onChange={handleChange} 
+            name="search"
+            value={value}
+          />
           {cities.map(city => {
-            return <p key={randomId()} >{city}</p>
+            return (
+              <p className="paragraph"
+                key={randomId()} 
+                data-value={city} 
+                onClick={getValue} >{city}
+              </p>)
           })}
           
           <i className="fas fa-location"></i>

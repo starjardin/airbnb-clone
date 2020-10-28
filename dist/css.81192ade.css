@@ -89,6 +89,25 @@ select option {
   background: #ffffff;
 }
 
+.paragraph {
+  margin-inline: 1rem;
+  margin-block: 1rem;
+  background-image: url("/location.c41a24bb.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 2rem;
+}
+
+.loaction > input {
+  display: block;
+  border: #eeee solid 1px;
+}
+
+.loaction > input:focus {
+  border: #eeee solid 1px;
+  outline: none;
+}
+
 @media (min-width: 720px) {
   .fieldset fieldset {
     display: flex;
