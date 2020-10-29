@@ -2,18 +2,21 @@ import React, { useState, useEffect } from 'react'
 import ButtonAddGuests from "./ButtonAddGuests"
 import randomId from 'random-id'
  
-export default function SearchComponent (props) {
+export default function SearchComponent ({
+  cities,
+  setCities,
+  value,
+  setValue,
+  ...props
+  }) {
   const stays = props.stays.map(stay => stay.city)
-  const [cities, setCities] = useState([])
   const city = [...new Set (stays)]
   useEffect ( () => {
     setCities(city)
   }, [])
-  const [value, setValue] = useState('')
+
   function getValue (e) {
-    if (!value) {
-      return setValue(e.target.dataset.value)
-    }
+    return setValue(e.target.dataset.value)
   }
   function handleChange (e) {
     setCities(cities.filter((item) => {
@@ -35,11 +38,11 @@ export default function SearchComponent (props) {
           />
           {cities.map(city => {
             return (
-              <p className="paragraph"
+              <button className="button-location"
                 key={randomId()} 
                 data-value={city} 
                 onClick={getValue} >{city}
-              </p>)
+              </button>)
           })}
           
           <i className="fas fa-location"></i>

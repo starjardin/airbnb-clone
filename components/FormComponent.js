@@ -19,6 +19,10 @@ export default function FormComponent (props) {
             setIsOpen={props.setIsOpen}
             handleSubmit={props.handleSubmit}
             stays={props.stays}
+            cities={props.cities}
+            setCities={props.setCities}
+            value={props.value}
+            setValue={props.setValue}
           />
         </div>
       </fieldset>

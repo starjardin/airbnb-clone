@@ -14,7 +14,7 @@ details {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 75vh;
+  bottom: 55vh;
   transform: translateY(0);
   background-color: #ffffff;
 }
@@ -89,8 +89,11 @@ select option {
   background: #ffffff;
 }
 
-.paragraph {
+.button-location {
+  display: block;
+  background-color: #ffffff;
   margin-inline: 1rem;
+  border: none;
   margin-block: 1rem;
   background-image: url("/location.c41a24bb.svg");
   background-repeat: no-repeat;

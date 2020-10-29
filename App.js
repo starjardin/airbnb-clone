@@ -11,7 +11,9 @@ export default function App () {
   const [isOpen, setIsOpen] = useState(false)
   const [adultGuests, setAdultGuests] = useState(0)
   const [childrenGuests, setChildrenGuests] = useState(0)
-  
+  const [cities, setCities] = useState([])
+  const [value, setValue] = useState('')
+
   const guests = adultGuests + childrenGuests
   const maxGuests = towns.filter(town => {
     return town.maxGuests >= guests
@@ -39,7 +41,6 @@ export default function App () {
     setAdultGuests(adultGuests)
     handleOpen()
   }
-
   return (
     <>
       <div className="form--header">
@@ -47,9 +48,11 @@ export default function App () {
         {/* These three following buttons buttons for handling the opning the popup */}
         <div className="button--container">
           <button 
-            className="click" onClick={handleOpen}>Helsinki, finland</button>
+            className="click" onClick={handleOpen}>{value !== "" && `${value} ,`} Finland</button>
           <button 
-            type="button" className="btn add click" onClick={handleOpen}>Add guests</button>
+            type="button" className="btn add click" onClick={handleOpen}>
+            {guests == 0 ? "Add Guests" : `${guests} guests`}
+          </button>
           <button  
             className="fa fa-search click" htmlFor="search"></button>
         </div>
@@ -66,8 +69,13 @@ export default function App () {
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           handleSubmit={handleSubmit}
+          cities={cities}
+          setCities={setCities}
+          value={value}
+          setValue={setValue}
         />}
       </div>
+      <HeaderComponent staylenght={maxGuests.length} {...towns}/>
       <div className="card--container" style={isOpen ? styleIsOpen : styleIsClosed} >
         {maxGuests.map(stay => {
           return (
@@ -75,7 +83,6 @@ export default function App () {
           )
         })}
       </div>
-      <HeaderComponent staylenght={maxGuests.length} {...towns}/>
     </>
   )
 }
