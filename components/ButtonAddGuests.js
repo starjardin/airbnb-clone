@@ -8,6 +8,8 @@ export default function ButtonAddGuests ({
   setIsOpen,
   handleOpen,
   adultGuests,
+  optionIsopen,
+  setOptionIsopen,
   ...props
   }) {
 
@@ -34,36 +36,29 @@ export default function ButtonAddGuests ({
         setChildrenGuests(prev => prev - 1)
       }
     }
-    
+
   return (
     <>
       <div>
-        <details>
-          <summary>
-            <p>Guests</p>
-          </summary>
+        <p>adult</p>
           <div>
-            <div>
-              <p>adult</p>
-              <small>Age 13 or above</small>
-              <button 
-                type="button" 
-                onClick={decrementAdult} >-</button>
-              <button 
-                type="button" onClick={incrementAdult}>+</button>
-              <p>{props.adult}</p>
-            </div>
-            <div>
-              <p>Children</p>
-              <small>Age 2 - 12</small>
-              <button 
-                type="button" onClick={decrementChildren} >-</button>
-              <button 
-                type="button" onClick={incrementChildren}>+</button>
-              <p>{props.children}</p>
-            </div>
-          </div>
-        </details>
+          <small>Age 13 or above</small>
+          <button 
+            type="button" 
+            onClick={decrementAdult} >-</button>
+          <button 
+            type="button" onClick={incrementAdult}>+</button>
+          <p>{props.adult}</p>
+        </div>
+        <div>
+          <p>Children</p>
+          <small>Age 2 - 12</small>
+          <button 
+            type="button" onClick={decrementChildren} >-</button>
+          <button 
+            type="button" onClick={incrementChildren}>+</button>
+          <p>{props.children}</p>
+        </div>
       </div>
     </>
   )

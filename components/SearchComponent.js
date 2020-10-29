@@ -5,6 +5,8 @@ import randomId from 'random-id'
 export default function SearchComponent ({
   cities,
   setCities,
+  optionIsopen,
+  setOptionIsopen,
   value,
   setValue,
   ...props
@@ -35,28 +37,25 @@ export default function SearchComponent ({
             onChange={handleChange} 
             name="search"
             value={value}
+            onClick={() => setOptionIsopen(prev => !prev)}
           />
-          {cities.map(city => {
-            return (
-              <button className="button-location"
-                key={randomId()} 
-                data-value={city} 
-                onClick={getValue} >{city}
-              </button>)
-          })}
+          <div>
+            { optionIsopen && cities.map(city => {
+              return (
+                <button className="button-location"
+                  key={randomId()} 
+                  data-value={city} 
+                  onClick={getValue} >{city}
+                </button>)
+            })}
+          </div>
           
           <i className="fas fa-location"></i>
         </label>
         <ButtonAddGuests
-          handleOpen={props.handleOpen}  
-          adultGuests={props.adultGuests}
-          setAdultGuests={props.setAdultGuests}
-          childrenGuests={props.childrenGuests}
-          setChildrenGuests={props.setChildrenGuests}
-          adult={props.adult}
-          children={props.children}
-          isOpen={props.isOpen}
-          setIsOpen={props.setIsOpen}
+          {...props}
+          optionIsopen={optionIsopen}
+          setOptionIsopen={setOptionIsopen}
         />
         <div>
         <button 

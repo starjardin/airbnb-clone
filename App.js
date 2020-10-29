@@ -13,6 +13,7 @@ export default function App () {
   const [childrenGuests, setChildrenGuests] = useState(0)
   const [cities, setCities] = useState([])
   const [value, setValue] = useState('')
+  const [optionIsopen, setOptionIsopen] = useState(false)
 
   const guests = adultGuests + childrenGuests
   const maxGuests = towns.filter(town => {
@@ -21,6 +22,11 @@ export default function App () {
 
   function handleOpen () {
     setIsOpen(prev => !prev)
+  }
+
+  function menuOpen () {
+    handleOpen()
+    setOptionIsopen(true)
   }
 
   const styleIsOpen = {
@@ -48,7 +54,7 @@ export default function App () {
         {/* These three following buttons buttons for handling the opning the popup */}
         <div className="button--container">
           <button 
-            className="click" onClick={handleOpen}>{value !== "" && `${value} ,`} Finland</button>
+            className="click" onClick={menuOpen}>{value !== "" && `${value} ,`} Finland</button>
           <button 
             type="button" className="btn add click" onClick={handleOpen}>
             {guests == 0 ? "Add Guests" : `${guests} guests`}
@@ -73,6 +79,8 @@ export default function App () {
           setCities={setCities}
           value={value}
           setValue={setValue}
+          optionIsopen={optionIsopen}
+          setOptionIsopen={setOptionIsopen}
         />}
       </div>
       <HeaderComponent staylenght={maxGuests.length} {...towns}/>

@@ -28546,7 +28546,9 @@ function ButtonAddGuests(_ref) {
       setIsOpen = _ref.setIsOpen,
       handleOpen = _ref.handleOpen,
       adultGuests = _ref.adultGuests,
-      props = _objectWithoutProperties(_ref, ["setAdultGuests", "isOpen", "setChildrenGuests", "childrenGuests", "setIsOpen", "handleOpen", "adultGuests"]);
+      optionIsopen = _ref.optionIsopen,
+      setOptionIsopen = _ref.setOptionIsopen,
+      props = _objectWithoutProperties(_ref, ["setAdultGuests", "isOpen", "setChildrenGuests", "childrenGuests", "setIsOpen", "handleOpen", "adultGuests", "optionIsopen", "setOptionIsopen"]);
 
   function incrementAdult() {
     setAdultGuests(function (prev) {
@@ -28580,7 +28582,7 @@ function ButtonAddGuests(_ref) {
     }
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("details", null, /*#__PURE__*/_react.default.createElement("summary", null, /*#__PURE__*/_react.default.createElement("p", null, "Guests")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "adult"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("small", null, "Age 13 or above"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: decrementAdult
   }, "-"), /*#__PURE__*/_react.default.createElement("button", {
@@ -28592,7 +28594,7 @@ function ButtonAddGuests(_ref) {
   }, "-"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     onClick: incrementChildren
-  }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.children))))));
+  }, "+"), /*#__PURE__*/_react.default.createElement("p", null, props.children))));
 }
 },{"react":"node_modules/react/index.js"}],"node_modules/random-id/index.js":[function(require,module,exports) {
 
@@ -28652,6 +28654,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -28675,9 +28679,11 @@ function SearchComponent(_ref) {
 
   var cities = _ref.cities,
       setCities = _ref.setCities,
+      optionIsopen = _ref.optionIsopen,
+      setOptionIsopen = _ref.setOptionIsopen,
       value = _ref.value,
       setValue = _ref.setValue,
-      props = _objectWithoutProperties(_ref, ["cities", "setCities", "value", "setValue"]);
+      props = _objectWithoutProperties(_ref, ["cities", "setCities", "optionIsopen", "setOptionIsopen", "value", "setValue"]);
 
   var stays = props.stays.map(function (stay) {
     return stay.city;
@@ -28709,26 +28715,23 @@ function SearchComponent(_ref) {
     type: "text",
     name: "change",
     onChange: handleChange
-  }, _defineProperty(_React$createElement, "name", "search"), _defineProperty(_React$createElement, "value", value), _React$createElement)), cities.map(function (city) {
+  }, _defineProperty(_React$createElement, "name", "search"), _defineProperty(_React$createElement, "value", value), _defineProperty(_React$createElement, "onClick", function onClick() {
+    return setOptionIsopen(function (prev) {
+      return !prev;
+    });
+  }), _React$createElement)), /*#__PURE__*/_react.default.createElement("div", null, optionIsopen && cities.map(function (city) {
     return /*#__PURE__*/_react.default.createElement("button", {
       className: "button-location",
       key: (0, _randomId.default)(),
       "data-value": city,
       onClick: getValue
     }, city);
-  }), /*#__PURE__*/_react.default.createElement("i", {
+  })), /*#__PURE__*/_react.default.createElement("i", {
     className: "fas fa-location"
-  })), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, {
-    handleOpen: props.handleOpen,
-    adultGuests: props.adultGuests,
-    setAdultGuests: props.setAdultGuests,
-    childrenGuests: props.childrenGuests,
-    setChildrenGuests: props.setChildrenGuests,
-    adult: props.adult,
-    children: props.children,
-    isOpen: props.isOpen,
-    setIsOpen: props.setIsOpen
-  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement(_ButtonAddGuests.default, _extends({}, props, {
+    optionIsopen: optionIsopen,
+    setOptionIsopen: setOptionIsopen
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
     className: "fa fa-search",
     "aria-label": "search"
@@ -28753,23 +28756,7 @@ function FormComponent(props) {
     className: "fieldset"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "formSearch"
-  }, /*#__PURE__*/_react.default.createElement(_SearchComponent.default, {
-    handleOpen: props.handleOpen,
-    adultGuests: props.adultGuests,
-    setAdultGuests: props.setAdultGuests,
-    childrenGuests: props.childrenGuests,
-    setChildrenGuests: props.setChildrenGuests,
-    adult: props.adult,
-    children: props.children,
-    isOpen: props.isOpen,
-    setIsOpen: props.setIsOpen,
-    handleSubmit: props.handleSubmit,
-    stays: props.stays,
-    cities: props.cities,
-    setCities: props.setCities,
-    value: props.value,
-    setValue: props.setValue
-  })));
+  }, /*#__PURE__*/_react.default.createElement(_SearchComponent.default, props)));
 }
 },{"react":"node_modules/react/index.js","./SearchComponent":"components/SearchComponent.js"}],"components/LogoComponent.js":[function(require,module,exports) {
 "use strict";
@@ -28863,6 +28850,11 @@ function App() {
       value = _useState12[0],
       setValue = _useState12[1];
 
+  var _useState13 = (0, _react.useState)(false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      optionIsopen = _useState14[0],
+      setOptionIsopen = _useState14[1];
+
   var guests = adultGuests + childrenGuests;
   var maxGuests = towns.filter(function (town) {
     return town.maxGuests >= guests;
@@ -28872,6 +28864,11 @@ function App() {
     setIsOpen(function (prev) {
       return !prev;
     });
+  }
+
+  function menuOpen() {
+    handleOpen();
+    setOptionIsopen(true);
   }
 
   var styleIsOpen = {
@@ -28899,7 +28896,7 @@ function App() {
     className: "button--container"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "click",
-    onClick: handleOpen
+    onClick: menuOpen
   }, value !== "" && "".concat(value, " ,"), " Finland"), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     className: "btn add click",
@@ -28922,7 +28919,9 @@ function App() {
     cities: cities,
     setCities: setCities,
     value: value,
-    setValue: setValue
+    setValue: setValue,
+    optionIsopen: optionIsopen,
+    setOptionIsopen: setOptionIsopen
   })), /*#__PURE__*/_react.default.createElement(_HeaderComponent.default, _extends({
     staylenght: maxGuests.length
   }, towns)), /*#__PURE__*/_react.default.createElement("div", {
@@ -28974,7 +28973,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50567" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57572" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
